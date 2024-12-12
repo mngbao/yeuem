@@ -6,7 +6,35 @@
 </head>
 <link rel="stylesheet" href="./index.css">
 <link rel="stylesheet" href="./background.css">
-<script src="./longpress.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const element = document.querySelector('.swipeable');
+  const hammer = new Hammer(element);
+
+  // Enable all directions
+  hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hammer.on('swipeleft', (ev) => {
+    console.log('Swiped Left');
+    element.classList.add('active');
+    // element.getElementsByClassName('card-front').classList.add('active');
+    // element.getElementsByClassName('card-back').classList.add('active');
+    // Left swipe logic
+  });
+
+  hammer.on('swiperight', (ev) => {
+    console.log('Swiped Right');
+    element.classList.remove('active');
+    // element.getElementsByClassName('card-front').classList.remove('active');
+    // element.getElementsByClassName('card-back').classList.remove('active');
+
+    // Right swipe logic
+  });
+
+
+});
+</script>
 <body>
     
     <div id="background">
@@ -36,12 +64,12 @@
       </div>
 
 
-    <div class="card-container">
+    <div class="card-container swipeable">
       
         <div class="card card-front">
             <div class="img-container">
             <image src="./aloe.png"/>
-                
+            <i class="hidden">Swipe left to open</i>    
             </div>
               
         </div>   
@@ -61,4 +89,6 @@
         </div>
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
 </html>
