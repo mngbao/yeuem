@@ -1,16 +1,25 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+  }
+  html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
 
-hr {
-  margin: 0.5em 0;
-  background-image: url(https://images.unsplash.com/photo-1605707157753-c723b9d5af4a?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDQ3MzB8&ixlib=rb-4.0.3&w=800&q=80&dpr=2);
-  background-position: center;
-  background-size: 400px auto; /* 必要に応じて調整 */
-  background-repeat: repeat;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  animation: bg1 10s linear infinite alternate both;
-  filter: saturate(2.2);
-}
 
 
 #background > div {
@@ -54,6 +63,7 @@ hr {
   position: relative;
   display: block;
   color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
   /*
   filter: contrast(0.8) brightness(1.2) hue-rotate(var(--hue))
