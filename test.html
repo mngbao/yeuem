@@ -1,26 +1,130 @@
-
+<!--
+Foil Stamping Effect
+https://codepen.io/wakana-k/pen/BavmMoO
+Copyright (c) 2023 by Wakana Y.K.
+-->
+<main>
+    <section>
+      <div>
+        <h1>Foil Stamping Effect</h1>
+        <hr />
+        <p>CSS Background Animation</p>
+      </div>
+    </section>
+    <section>
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </section>
+    <section>
+      <div>
+        <p>Fin.</p>
+        <p class='emoji'>&#9819;</p>
+        <p id='copyright'>&copy;2023 Wakana Y.K.</p>
+      </div>
+    </section>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.cdnfonts.com/css/segoe-script");
 * {
-    margin: 0;
-    padding: 0;
-  }
-  html,
-  body {
-    overscroll-behavior-x: none;
-    overscroll-behavior-y: none;
-  }
-  html {
-    font-size: 100%;
-    -webkit-text-size-adjust: 100%;
-    font-variant-ligatures: none;
-    -webkit-font-variant-ligatures: none;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
-    -webkit-font-smoothing: antialiased;
-  }
-
-
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  position: relative;
+  color: #777;
+  font-family: "Segoe Script", sans-serif;
+  font-size: max(20px, 4vw);
+  font-weight: 500;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  line-height: 1;
+  overflow-x: hidden;
+}
+main {
+  position: relative;
+}
+section {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: max(25px, 7vw);
+  ont-weight: bold;
+}
+hr {
+  margin: 0.5em 0;
+  height: clamp(2px, 0.5vw, 5px);
+  background-image: url(https://images.unsplash.com/photo-1605707157753-c723b9d5af4a?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDQ3MzB8&ixlib=rb-4.0.3&w=800&q=80&dpr=2);
+  background-position: center;
+  background-size: 400px auto; /* 必要に応じて調整 */
+  background-repeat: repeat;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  animation: bg1 10s linear infinite alternate both;
+  filter: saturate(2.2);
+}
+.emoji {
+  margin: 0.3em 0;
+  font-family: sans-serif;
+  font-size: 1.78rem;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+  text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+  color: transparent;
+  background-clip: text;
+  background-image: url(https://images.unsplash.com/photo-1605707157753-c723b9d5af4a?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDQ3MzB8&ixlib=rb-4.0.3&w=800&q=80&dpr=2);
+  background-position: center;
+  background-size: 200px auto; /* 必要に応じて調整 */
+  background-repeat: repeat;
+  transform: translateZ(0);
+  animation: bg1 10s linear infinite alternate both;
+  filter: saturate(3);
+}
+#copyright {
+  font-size: 0.85rem;
+}
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+  background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUyNDAwMTN8&ixlib=rb-4.0.3&q=85);
+  background-size: cover;
+  background-repeat: no-repeat;
+  user-select: none;
+  pointer-events: none;
+  z-index: -1;
+}
 #background > div {
   --size: 5vw;
   --symbol: "✽";
@@ -38,13 +142,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  
-  font-size: 100px;
+  font-size: clamp(15px, var(--size), 80px);
+  font-family: "Noto Sans Symbols 2", sans-serif;
   transform-origin: center top;
   animation: move var(--duration_move) var(--delay_move) linear infinite normal
     both;
 }
-
 #background span {
   display: block;
   position: relative;
@@ -61,14 +164,13 @@
   position: relative;
   display: block;
   color: transparent;
-  -webkit-background-clip: text;
   background-clip: text;
   /*
   filter: contrast(0.8) brightness(1.2) hue-rotate(var(--hue))
     drop-shadow(0px 0px 0.1px gold);
   */
-  /* filter: brightness(1.2) hue-rotate(var(--hue)); */
-  /* background-image: url(https://images.unsplash.com/photo-1580822115965-0b2532068eff?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDUzNzJ8&ixlib=rb-4.0.3&q=100&w=200&dpr=2); */
+  filter: brightness(1.2) hue-rotate(var(--hue));
+  background-image: url(https://images.unsplash.com/photo-1580822115965-0b2532068eff?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDUzNzJ8&ixlib=rb-4.0.3&q=100&w=200&dpr=2);
   background-position: center;
   background-size: 200px auto; /* 必要に応じて調整 */
   background-repeat: repeat;
@@ -114,70 +216,70 @@
 
 /* 以下、ひたすら量産 */
 #background > div:nth-child(23n + 1) {
-  --symbol: "🩷";
+  --symbol: "🟄";
 }
 #background > div:nth-child(23n + 2) {
-  --symbol: "❣️";
+  --symbol: "❉";
 }
 #background > div:nth-child(23n + 3) {
-  --symbol: "💓";
+  --symbol: "🟉";
 }
 #background > div:nth-child(23n + 4) {
-  --symbol: "✽";
+  --symbol: "❈";
 }
 #background > div:nth-child(23n + 5) {
-  --symbol: "✽";
+  --symbol: "✣";
 }
 #background > div:nth-child(23n + 6) {
-  --symbol: "😘";
+  --symbol: "🞯";
 }
 #background > div:nth-child(23n + 7) {
-  --symbol: "♥️";
+  --symbol: "🟎";
 }
 #background > div:nth-child(23n + 8) {
-  --symbol: "😘";
+  --symbol: "♦";
 }
 #background > div:nth-child(23n + 9) {
-  --symbol: "🍆";
+  --symbol: "✢";
 }
 #background > div:nth-child(23n + 10) {
-  --symbol: "💓";
+  --symbol: "🞵";
 }
 #background > div:nth-child(23n + 11) {
-  --symbol: "🩷";
+  --symbol: "✤";
 }
 #background > div:nth-child(23n + 12) {
-  --symbol: "💮";
+  --symbol: "✦";
 }
 #background > div:nth-child(23n + 13) {
-  --symbol: "💞";
+  --symbol: "❇";
 }
 #background > div:nth-child(23n + 14) {
-  --symbol: "❤️‍🔥";
+  --symbol: "🞻";
 }
 #background > div:nth-child(23n + 15) {
-  --symbol: "💘";
+  --symbol: "✶";
 }
 #background > div:nth-child(23n + 16) {
-  --symbol: "💟";
+  --symbol: "✳";
 }
 #background > div:nth-child(23n + 17) {
-  --symbol: "💝";
+  --symbol: "❊";
 }
 #background > div:nth-child(23n + 18) {
-  --symbol: "💜";
+  --symbol: "🟄";
 }
 #background > div:nth-child(23n + 19) {
-  --symbol: "🥳";
+  --symbol: "✻";
 }
 #background > div:nth-child(23n + 20) {
-  --symbol: "🫶";
+  --symbol: "❋";
 }
 #background > div:nth-child(23n + 21) {
-  --symbol: "🍑";
+  --symbol: "✷";
 }
 #background > div:nth-child(23n + 22) {
-  --symbol: "🩷";
+  --symbol: "✴";
 }
 
 #background > div:nth-child(21n + 1) {
@@ -369,3 +471,31 @@
 #background > div:nth-child(5n + 4) {
   --size: 7vw;
 }
+
+    </style>
+  </main>
+  <div id="background">
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+  </div>
