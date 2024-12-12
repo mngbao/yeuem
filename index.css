@@ -11,8 +11,8 @@ body {
 }
 
 .card-container{
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 700px;
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -78,8 +78,8 @@ body {
     
     
     .card-message p {
-        line-height: 1.4;
-        font-size: 1.6rem;
+        line-height: 1.8;
+        font-size: 1.7rem;
     }
     .img-container{
         width: 100%;

@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   html,
   body {
@@ -149,7 +148,7 @@
   --symbol: "🩷";
 }
 #background > div:nth-child(23n + 12) {
-  --symbol: "💮";
+  --symbol: "🟄";
 }
 #background > div:nth-child(23n + 13) {
   --symbol: "💞";
