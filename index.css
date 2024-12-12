@@ -21,7 +21,7 @@ body {
     
 }
 
-.card-container .active{
+.active{
     transform: rotate(-4deg);
 }
 .active >div:nth-child(1){
