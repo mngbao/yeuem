@@ -136,10 +136,10 @@
   --symbol: "💓";
 }
 #background > div:nth-child(23n + 4) {
-  --symbol: "✽";
+  --symbol: "❤️‍🔥";
 }
 #background > div:nth-child(23n + 5) {
-  --symbol: "✽";
+  --symbol: "🩷";
 }
 #background > div:nth-child(23n + 6) {
   --symbol: "😘";
