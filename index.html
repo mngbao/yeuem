@@ -10,29 +10,45 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('.swipeable');
-  const hammer = new Hammer(element);
+   let hammer = null;
+   function updateHammerListeners() {
+        // Define the breakpoint for large screens
+        const isBigScreen = window.matchMedia('(min-width: 1024px)').matches;
 
-  // Enable all directions
-  hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        if (isBigScreen) {
+          // Remove Hammer.js listeners if initialized
+          if (hammer) {
+            hammer.destroy();
+            hammer = null; // Clear the reference
+            console.log('Hammer.js disabled for large screens');
+          }
+        } else {
+            if (!hammer) {
+            hammer = new Hammer(element);
+            // Enable all directions
+            hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
-  hammer.on('swipeleft', (ev) => {
-    console.log('Swiped Left');
-    element.classList.add('active');
-    // element.getElementsByClassName('card-front').classList.add('active');
-    // element.getElementsByClassName('card-back').classList.add('active');
-    // Left swipe logic
-  });
+            hammer.on('swipeleft', (ev) => {
+                console.log('Swiped Left');
+                element.classList.add('active');
+            
+                // Left swipe logic
+            });
 
-  hammer.on('swiperight', (ev) => {
-    console.log('Swiped Right');
-    element.classList.remove('active');
-    // element.getElementsByClassName('card-front').classList.remove('active');
-    // element.getElementsByClassName('card-back').classList.remove('active');
+            hammer.on('swiperight', (ev) => {
+                console.log('Swiped Right');
+                element.classList.remove('active');
 
-    // Right swipe logic
-  });
+                // Right swipe logic
+            });
+            }
+        }
+    }
+     // Check on page load
+     updateHammerListeners();
 
-
+    // Re-check when the window resizes
+    window.addEventListener('resize', updateHammerListeners);
 });
 </script>
 <body>

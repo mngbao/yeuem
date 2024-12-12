@@ -111,7 +111,9 @@ body {
   pointer-events: none;        /* Prevent interactions */
   -webkit-touch-callout: none;
     }
-
+    .hidden{
+        display: block;
+    }
 /* Tablet Styles */
 @media screen and (min-width: 768px) {
     
@@ -147,6 +149,9 @@ body {
     .card-container:hover .card-back {
         transform: rotateY(-130deg); 
         
+    }
+    .hidden{
+display: none;
     }
     
 }
