@@ -6,7 +6,7 @@ body {
     margin: 0;
     background-color: #0f0f0f;
     perspective: 2000px;
-    font-family: cursive;
+    font-family: fantasy;
     overflow: hidden;
 }
 
@@ -78,8 +78,8 @@ body {
     
     
     .card-message p {
-        line-height: 1.6;
-        font-size: 1.5rem;
+        line-height: 1.4;
+        font-size: 1.6rem;
     }
     .img-container{
         width: 100%;
@@ -99,6 +99,9 @@ body {
 
 /* Desktop Styles */
 @media screen and (min-width: 1024px) {
+    body{
+        font-family: cursive;
+    }
     .card-container {
         width: 300px;
         height: 400px;
