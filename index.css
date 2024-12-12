@@ -31,7 +31,7 @@ body {
     transform: rotateY(-130deg);
 }
 
-.card-container:hover{
+/* .card-container:hover{
     transform: rotate(-4deg)
 }
 .card-container:hover .card-front{
@@ -42,7 +42,7 @@ body {
 .card-container:hover .card-back {
     transform: rotateY(-130deg); 
     
-}
+} */
 .card {
     position: absolute;
     width: 100%;
