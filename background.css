@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   html,
   body {
@@ -9,8 +10,6 @@
     overscroll-behavior-y: none;
   }
   html {
-    font-size: 100%;
-    -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
@@ -18,67 +17,82 @@
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
   }
-
-
-
-#background > div {
-  --size: 5vw;
-  --symbol: "✽";
-
-  --pos_x: 0vw;
-  --duration_move: 7s;
-  --delay_move: 0s;
-
-  --duration_rotate: 1.5s;
-  --delay_rotate: 0s;
-  --duration_clip: 10s;
-  --delay_clip: 0s;
-  --hue: 0deg;
-
-  position: absolute;
-  top: 0;
-  left: 0;
   
-  font-size: 100px;
-  transform-origin: center top;
-  animation: move var(--duration_move) var(--delay_move) linear infinite normal
-    both;
-}
-
-#background span {
-  display: block;
-  position: relative;
-  transform-origin: center;
-  transform: rotate(0deg);
-  animation: rotate var(--duration_rotate) var(--delay_rotate) ease-in-out
-    infinite alternate both;
-}
-#background span:after {
-  content: var(--symbol);
-  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
-  text-stroke: 0.5px rgba(0, 0, 0, 0.2);
-  line-height: 1.2;
-  position: relative;
-  display: block;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  /*
-  filter: contrast(0.8) brightness(1.2) hue-rotate(var(--hue))
-    drop-shadow(0px 0px 0.1px gold);
-  */
-  /* filter: brightness(1.2) hue-rotate(var(--hue)); */
-  /* background-image: url(https://images.unsplash.com/photo-1580822115965-0b2532068eff?&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUxNDUzNzJ8&ixlib=rb-4.0.3&q=100&w=200&dpr=2); */
-  background-position: center;
-  background-size: 200px auto; /* 必要に応じて調整 */
-  background-repeat: repeat;
-  transform: translateZ(0);
-  animation: bg1 var(--duration_clip) var(--delay_clip) linear infinite
-    alternate both;
-}
-#background > div:nth-child(even) span:after {
-  animation-name: bg2;
-}
+  
+  
+  
+  
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /*   background-color: white;
+    background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUyNDAwMTN8&ixlib=rb-4.0.3&q=85); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    user-select: none;
+    pointer-events: none;
+    z-index: -1;
+  }
+  #background > div {
+    --size: 5vw;
+    --symbol: "✽";
+  
+    --pos_x: 0vw;
+    --duration_move: 7s;
+    --delay_move: 0s;
+  
+    --duration_rotate: 1.5s;
+    --delay_rotate: 0s;
+    --duration_clip: 10s;
+    --delay_clip: 0s;
+    --hue: 0deg;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: clamp(15px, var(--size), 80px);
+    font-family: "Noto Sans Symbols 2", sans-serif;
+    transform-origin: center top;
+    animation: move var(--duration_move) var(--delay_move) linear infinite normal
+      both;
+  }
+  #background span {
+    display: block;
+    position: relative;
+    transform-origin: center;
+    transform: rotate(0deg);
+    animation: rotate var(--duration_rotate) var(--delay_rotate) ease-in-out
+      infinite alternate both;
+  }
+  #background span:after {
+    content: var(--symbol);
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
+    text-stroke: 0.5px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+    position: relative;
+    display: block;
+    /*   color: transparent; */
+    background-clip: text;
+  
+    /*   filter: contrast(0.8) brightness(1.2) hue-rotate(var(--hue)) */
+    /*     drop-shadow(0px 0px 0.1px gold); */
+  
+    /*    filter: brightness(1.2) hue-rotate(var(--hue)); */
+  
+    background-position: center;
+    background-size: 200px auto; /* 必要に応じて調整 */
+    background-repeat: repeat;
+    transform: translateZ(0);
+    animation: bg1 var(--duration_clip) var(--delay_clip) linear infinite
+      alternate both;
+  }
+  #background > div:nth-child(even) span:after {
+    animation-name: bg2;
+  }
 @keyframes bg1 {
   0% {
     background-position: 0% 0%;
