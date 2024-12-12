@@ -6,7 +6,7 @@ body {
     margin: 0;
     background-color: #0f0f0f;
     perspective: 2000px;
-    font-family: fantasy;
+    font-family: cursive;
     overflow: hidden;
 }
 
@@ -99,9 +99,7 @@ body {
 
 /* Desktop Styles */
 @media screen and (min-width: 1024px) {
-    body{
-        font-family: cursive;
-    }
+  
     .card-container {
         width: 300px;
         height: 400px;

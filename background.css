@@ -1,20 +1,9 @@
 
-section {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: visible;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: max(25px, 7vw);
-  ont-weight: bold;
+  font-weight: bold;
 }
 hr {
   margin: 0.5em 0;
