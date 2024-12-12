@@ -18,15 +18,15 @@ body {
     cursor: pointer;
     transition: transform 1s ease-in-out;
 }
-.card-container:hover{
+.card-container:active{
     transform: rotate(-4deg)
 }
-.card-container:hover .card-front{
+.card-container:active .card-front{
     transform: rotateY(-130deg);
 }
 
 
-.card-container:hover .card-back {
+.card-container:active .card-back {
     transform: rotateY(-130deg); 
     
 }
@@ -116,7 +116,18 @@ body {
         font-size: 1rem;
     }
     
+    .card-container:hover{
+        transform: rotate(-4deg)
+    }
+    .card-container:hover .card-front{
+        transform: rotateY(-130deg);
+    }
     
+    
+    .card-container:hover .card-back {
+        transform: rotateY(-130deg); 
+        
+    }
     
 }
 
